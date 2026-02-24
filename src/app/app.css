@@ -1,0 +1,233 @@
+:host {
+  --ink: #0e1017;
+  --slate: #2d3243;
+  --muted: #6b7387;
+  --mist: #d8dbe6;
+  --shell: #f4f5f8;
+  --accent: #ff6f3d;
+  --accent-deep: #e13f16;
+  --glow: #ffd4c2;
+  --chip: #ffffff;
+  --card: #ffffff;
+
+  min-height: 100vh;
+  display: block;
+  color: var(--ink);
+  font-family: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top left, #fff6f1 0%, transparent 60%),
+    radial-gradient(circle at 20% 30%, #f3f8ff 0%, transparent 55%),
+    linear-gradient(160deg, #fdf5f1 0%, #f8f9ff 55%, #f2f4ff 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  padding: clamp(1.5rem, 3vw, 3.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 2rem;
+  align-items: center;
+  animation: rise 600ms ease-out;
+}
+
+.hero-text h1 {
+  font-size: clamp(2.4rem, 3vw, 3.4rem);
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+}
+
+.hero-text p {
+  margin: 0;
+  color: var(--slate);
+  font-size: 1.05rem;
+}
+
+.eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+}
+
+.route-picker {
+  background: var(--card);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 16px 40px rgba(19, 25, 46, 0.1);
+  border: 1px solid rgba(44, 52, 83, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  animation: rise 700ms ease-out;
+}
+
+.route-picker label {
+  font-weight: 600;
+  color: var(--slate);
+}
+
+.select-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.75rem;
+  border-radius: 0.95rem;
+  background: var(--shell);
+  border: 1px solid rgba(44, 52, 83, 0.08);
+  transition:
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.select-shell.is-active {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--glow);
+}
+
+.select-shell select {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(44, 52, 83, 0.16);
+  font-size: 1rem;
+  font-family: inherit;
+  color: var(--ink);
+  background: #ffffff;
+}
+
+.select-shell option[aria-current='page'] {
+  font-weight: 600;
+}
+
+.select-status {
+  font-size: 0.9rem;
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.panel {
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid rgba(44, 52, 83, 0.08);
+  box-shadow: 0 20px 45px rgba(21, 27, 53, 0.12);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: rise 800ms ease-out;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.chips a {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  background: var(--chip);
+  text-decoration: none;
+  color: var(--slate);
+  font-weight: 600;
+  border: 1px solid rgba(44, 52, 83, 0.08);
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease;
+}
+
+.chips a:hover {
+  transform: translateY(-2px);
+}
+
+.chips a.is-active {
+  border-color: var(--accent);
+  color: var(--accent-deep);
+  box-shadow: 0 8px 20px rgba(225, 63, 22, 0.2);
+}
+
+.route-body {
+  min-height: 260px;
+}
+
+.route-card {
+  background: var(--card);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(44, 52, 83, 0.08);
+  box-shadow: 0 16px 30px rgba(21, 27, 53, 0.08);
+}
+
+.route-card h2 {
+  margin-top: 0;
+  margin-bottom: 0.8rem;
+}
+
+.route-card p {
+  margin-top: 0;
+  color: var(--slate);
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.2rem;
+}
+
+.route-grid h3 {
+  margin: 0 0 0.5rem;
+  color: var(--slate);
+}
+
+.route-grid ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.route-callout {
+  margin-top: 1.2rem;
+  padding: 0.8rem 1rem;
+  border-radius: 0.9rem;
+  background: #fff2ea;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
+  color: var(--accent-deep);
+  font-weight: 600;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
